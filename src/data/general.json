@@ -1,0 +1,36 @@
+{
+  "mission_statement": "The Undergraduate Economics Society (UES) is the premier student organization dedicated to bridging theoretical economics with real-world application, quantitative research, and career leadership.",
+  "vision_statement": "To cultivate an inclusive, intellectually vibrant community where undergraduate students master economic principles, address pressing global challenges, and launch distinguished careers across academia, public policy, tech, and financial markets.",
+  "pillars": [
+    {
+      "id": "academic",
+      "title": "Academic Excellence",
+      "icon": "BookOpen",
+      "description": "Comprehensive study groups, peer tutoring, econometrics workshops, and faculty roundtable discussions."
+    },
+    {
+      "id": "competitions",
+      "title": "National Case Competitions",
+      "icon": "Trophy",
+      "description": "Host of the prestigious UES Annual Economics Case Competition, connecting top student analysts with industry judges."
+    },
+    {
+      "id": "career",
+      "title": "Career Launchpad",
+      "icon": "TrendingUp",
+      "description": "Exclusive recruitment events with premier investment banks, economic consultancies, central banks, and tech firms."
+    },
+    {
+      "id": "research",
+      "title": "Policy & Research Journal",
+      "icon": "FileText",
+      "description": "Publication of the Undergraduate Economic Review, showcasing peer-reviewed student research and policy analyses."
+    }
+  ],
+  "history": [
+    { "year": "2012", "event": "UES founded with 25 charter members to foster undergraduate economic research." },
+    { "year": "2016", "event": "Launched the First Annual National Undergraduate Case Competition." },
+    { "year": "2020", "event": "Expanded career mentorship network connecting over 500 alumni in global finance & tech." },
+    { "year": "2024", "event": "Established $10,000 annual case competition endowment sponsored by top economic consulting firms." }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "title": "2026 UES National Undergraduate Economics Case Competition",
+  "theme": "Navigating Global Supply Chain Shocks & Energy Transitions in Emerging Markets",
+  "prizePoolTotal": "$10,000",
+  "registrationDeadline": "2026-10-25T23:59:59",
+  "tracks": [
+    {
+      "id": "macro-policy",
+      "name": "Track A: Macroeconomic & Trade Policy",
+      "focus": "Formulate monetary and fiscal interventions to stabilize inflation while promoting clean energy capital expenditure."
+    },
+    {
+      "id": "consulting-tech",
+      "name": "Track B: Economic Consulting & Tech Market Structure",
+      "focus": "Perform empirical market power valuation, antitrust analysis, and strategic pricing models for semiconductor networks."
+    },
+    {
+      "id": "sustainable-finance",
+      "name": "Track C: Sustainable Finance & Development Economics",
+      "focus": "Design blended finance instruments to accelerate infrastructure bonds in developing sub-Saharan economies."
+    }
+  ],
+  "prizes": [
+    { "place": "1st Place Champions", "amount": "$5,000", "perks": "Fast-track interview for summer associate role at Cornerstone Research + Plaque" },
+    { "place": "2nd Place Runner-Up", "amount": "$3,000", "perks": "VIP Dinner with Executive Judges + Certificate of Excellence" },
+    { "place": "3rd Place Winner", "amount": "$1,500", "perks": "Mentorship with Senior Analysts + Certificate" },
+    { "place": "Best Freshman / Novice Team", "amount": "$500", "perks": "Special recognition trophy + Book stipend" }
+  ],
+  "timeline": [
+    { "date": "Oct 15, 2026", "title": "Prompt Release & Registration Opens", "desc": "Prompt document and raw data sets published to registered team leads." },
+    { "date": "Oct 25, 2026", "title": "Registration Closes", "desc": "Final deadline for team registration (2 to 4 undergraduate students per team)." },
+    { "date": "Nov 05, 2026", "title": "First Round Executive Deck Submission", "desc": "Submit 10-slide executive presentation pitch and econometric model appendix." },
+    { "date": "Nov 12, 2026", "title": "Finalist Announcement", "desc": "Top 6 finalist teams selected for live presentation round." },
+    { "date": "Nov 20, 2026", "title": "Live Finalist Presentations & Gala", "desc": "15-minute presentation followed by 10-minute Q&A with judge panel." }
+  ],
+  "sponsors": [
+    { "name": "Cornerstone Research", "logo": "Building" },
+    { "name": "Analysis Group", "logo": "BarChart3" },
+    { "name": "Federal Reserve System", "logo": "Landmark" },
+    { "name": "NBER Economic Network", "logo": "Globe" }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "id": "faq-1",
+      "category": "Membership",
+      "q": "Who is eligible to join the Undergraduate Economics Society?",
+      "a": "All currently enrolled undergraduate students across any major or school are welcome to join UES! While many members major in Economics, Financial Economics, Data Science, Math, or Business, our events, case comps, and study groups are open to everyone interested in economics."
+    },
+    {
+      "id": "faq-2",
+      "category": "Case Competition",
+      "q": "Do I need prior case competition experience to participate?",
+      "a": "Not at all! We host introductory case prep workshops prior to prompt release, providing sample decks, dataset walkthroughs, and mentor drop-in hours. There is also a dedicated Novice / Best Freshman award track."
+    },
+    {
+      "id": "faq-3",
+      "category": "Membership",
+      "q": "Are there membership dues or fees?",
+      "a": "General UES membership is completely free! Access to study guides, general body meetings, and research talks is open to all students. Small materials fees may apply for select off-campus networking dinners."
+    },
+    {
+      "id": "faq-4",
+      "category": "Case Competition",
+      "q": "How are teams formed for the UES Case Competition?",
+      "a": "Teams consist of 2 to 4 students. You can register with a pre-formed team, or attend our 'Team Matchmaking Social' held the evening prompt is released to get paired with fellow economics students."
+    },
+    {
+      "id": "faq-5",
+      "category": "Resources & Journal",
+      "q": "How can I submit my research to the Undergraduate Economic Review?",
+      "a": "We accept submissions twice per year (Fall and Spring deadlines). Submissions must be original empirical or theoretical work conducted during your undergraduate studies under faculty guidance or independently."
+    },
+    {
+      "id": "faq-6",
+      "category": "Get Involved",
+      "q": "What committees can I join as an active committee officer?",
+      "a": "Active members can apply for officers positions in 5 committees: Academic Affairs, Case Competition Operations, Corporate Relations & Career, Research & Publications, and Marketing & Community."
+    }
+  ]
+}

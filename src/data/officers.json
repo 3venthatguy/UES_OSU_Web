@@ -1,0 +1,70 @@
+{
+  "members": [
+    {
+      "id": "1",
+      "name": "Maya Lin",
+      "title": "President",
+      "major": "Economics & Data Science '26",
+      "bio": "Specializes in quantitative macroeconomics and monetary policy research. Previously interned at the Federal Reserve Board and Goldman Sachs.",
+      "email": "m.lin@ues-economics.org",
+      "linkedin": "https://linkedin.com",
+      "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop&q=80",
+      "committee": "Executive Board"
+    },
+    {
+      "id": "2",
+      "name": "Julian Vance",
+      "title": "Vice President of Operations",
+      "major": "Economics & Mathematics '26",
+      "bio": "Focuses on financial market dynamics and game theory. Incoming Investment Banking Analyst at Morgan Stanley.",
+      "email": "j.vance@ues-economics.org",
+      "linkedin": "https://linkedin.com",
+      "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80",
+      "committee": "Executive Board"
+    },
+    {
+      "id": "3",
+      "name": "Sarah Chen",
+      "title": "Director of Case Competitions",
+      "major": "Financial Economics '27",
+      "bio": "Leads the planning and execution of the national UES Case Competition. Research fellow in industrial organization.",
+      "email": "s.chen@ues-economics.org",
+      "linkedin": "https://linkedin.com",
+      "photo": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&auto=format&fit=crop&q=80",
+      "committee": "Case Comp Committee"
+    },
+    {
+      "id": "4",
+      "name": "Marcus Thorne",
+      "title": "Director of Academic Affairs",
+      "major": "Economics & Public Policy '26",
+      "bio": "Coordinates peer tutoring, econometrics workshops, and faculty speaker panels. Passionate about labor market economics.",
+      "email": "m.thorne@ues-economics.org",
+      "linkedin": "https://linkedin.com",
+      "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80",
+      "committee": "Academic Affairs"
+    },
+    {
+      "id": "5",
+      "name": "Elena Rostova",
+      "title": "Director of Corporate Relations",
+      "major": "Economics & Statistics '27",
+      "bio": "Manages sponsor partnerships with Analysis Group, Cornerstone Research, and BlackRock. Organizing sponsor keynotes.",
+      "email": "e.rostova@ues-economics.org",
+      "linkedin": "https://linkedin.com",
+      "photo": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&auto=format&fit=crop&q=80",
+      "committee": "Corporate Relations"
+    },
+    {
+      "id": "6",
+      "name": "David K. O'Connor",
+      "title": "Editor-in-Chief, Economic Review",
+      "major": "Economics & History '26",
+      "bio": "Oversees the peer review and publication of student research articles on macro-policy and behavioral economics.",
+      "email": "d.oconnor@ues-economics.org",
+      "linkedin": "https://linkedin.com",
+      "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&auto=format&fit=crop&q=80",
+      "committee": "Research & Journal"
+    }
+  ]
+}

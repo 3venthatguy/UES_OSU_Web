@@ -1,0 +1,6 @@
+{
+  "name": "Undergraduate Economics Society",
+  "description": "The official digital platform for the Undergraduate Economics Society (UES) featuring an interactive 3D economic ecosystem model, case competition hub, event directory, research resources, and membership portal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

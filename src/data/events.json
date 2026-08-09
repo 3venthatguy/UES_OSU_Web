@@ -1,0 +1,86 @@
+{
+  "upcoming": [
+    {
+      "id": "ev-01",
+      "title": "2026 UES National Economics Case Competition - Prompt Launch",
+      "date": "2026-10-15T18:00:00",
+      "displayDate": "October 15, 2026 • 6:00 PM EST",
+      "location": "Auditorium A & Zoom Hybrid",
+      "category": "Case Comp",
+      "featured": true,
+      "tag": "Flagship Event",
+      "description": "Official prompt release for the 2026 Case Competition. Keynote speech by Senior Economist from the Federal Reserve Bank on macro stability.",
+      "speaker": "Dr. Aris Thorne (Federal Reserve Board)",
+      "rsvps": 184,
+      "capacity": 300
+    },
+    {
+      "id": "ev-02",
+      "title": "Quantitative Econometrics in Python & R Masterclass",
+      "date": "2026-09-12T17:00:00",
+      "displayDate": "September 12, 2026 • 5:00 PM EST",
+      "location": "Social Sciences Lab 204",
+      "category": "Workshop",
+      "featured": false,
+      "tag": "Skill Building",
+      "description": "Hands-on tutorial on panel data regression, diff-in-diff models, and time series forecasting using real financial market data.",
+      "speaker": "Prof. Lisa Vance (Dept Chair)",
+      "rsvps": 72,
+      "capacity": 80
+    },
+    {
+      "id": "ev-03",
+      "title": "Economic Consulting Recruitment Fireside Chat",
+      "date": "2026-09-24T18:30:00",
+      "displayDate": "September 24, 2026 • 6:30 PM EST",
+      "location": "Faculty Club Grand Ballroom",
+      "category": "Career",
+      "featured": true,
+      "tag": "Networking",
+      "description": "Meet partners and associates from Cornerstone Research, NERA, and Analysis Group. Resume drop and mock case interviews provided.",
+      "speaker": "Panel of Alumni Partners",
+      "rsvps": 145,
+      "capacity": 150
+    },
+    {
+      "id": "ev-04",
+      "title": "Policy Roundtable: Central Bank Digital Currencies (CBDC)",
+      "date": "2026-10-02T16:00:00",
+      "displayDate": "October 2, 2026 • 4:00 PM EST",
+      "location": "Econ Hall 101",
+      "category": "Academic",
+      "featured": false,
+      "tag": "Discussion",
+      "description": "Debate on monetary sovereignty, privacy implications, and financial inclusion under digital dollar architecture.",
+      "speaker": "UES Policy Scholars Committee",
+      "rsvps": 54,
+      "capacity": 100
+    }
+  ],
+  "past": [
+    {
+      "id": "ev-past-01",
+      "title": "Spring 2026 Macroeconomic Outlook & Fed Rate Decisions",
+      "date": "2026-04-10",
+      "category": "Academic",
+      "recap": "Attended by 160+ students. Explored yield curve inversions and inflation trajectory forecasting.",
+      "attendees": 165
+    },
+    {
+      "id": "ev-past-02",
+      "title": "UES Spring Case Competition Finals ($10k Prize Ceremony)",
+      "date": "2026-03-20",
+      "category": "Case Comp",
+      "recap": "32 undergraduate teams from 12 universities presented supply chain bottleneck mitigation strategies.",
+      "attendees": 240
+    },
+    {
+      "id": "ev-past-03",
+      "title": "Behavioral Economics & Nudge Theory in Tech Design",
+      "date": "2026-02-18",
+      "category": "Workshop",
+      "recap": "Guest lecture by Stanford behavioral economics researcher on decision architecture in digital products.",
+      "attendees": 110
+    }
+  ]
+}

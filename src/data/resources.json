@@ -1,0 +1,50 @@
+{
+  "academicGuides": [
+    {
+      "id": "res-1",
+      "title": "Intermediate Microeconomics: Mathematical Proofs & Optimization",
+      "category": "Study Guide",
+      "author": "UES Academic Affairs",
+      "downloadUrl": "#",
+      "format": "PDF",
+      "size": "2.4 MB",
+      "description": "Comprehensive review of Lagrange multipliers, Slutsky equation derivations, and game theory Nash equilibria."
+    },
+    {
+      "id": "res-2",
+      "title": "Applied Econometrics Starter Kit (Stata, R, & Python)",
+      "category": "Toolkit",
+      "author": "Marcus Thorne",
+      "downloadUrl": "#",
+      "format": "ZIP / Notebooks",
+      "size": "14.1 MB",
+      "description": "Sample scripts for instrumental variables (IV), fixed effects panel models, and heteroskedasticity testing."
+    },
+    {
+      "id": "res-3",
+      "title": "Undergraduate Economic Review Journal - Volume 12",
+      "category": "Research Journal",
+      "author": "UES Editorial Board",
+      "downloadUrl": "#",
+      "format": "PDF",
+      "size": "5.8 MB",
+      "description": "Selected peer-reviewed student papers covering AI impact on labor share, housing supply elasticity, and carbon pricing."
+    },
+    {
+      "id": "res-4",
+      "title": "Economic Consulting Case Interview Playbook",
+      "category": "Career Guide",
+      "author": "Corporate Relations Team",
+      "downloadUrl": "#",
+      "format": "PDF",
+      "size": "3.1 MB",
+      "description": "20 real case interview frameworks covering antitrust damage calculations, market entry pricing, and expert witness prep."
+    }
+  ],
+  "simulatorDefaults": {
+    "moneySupply": 100,
+    "interestRate": 4.5,
+    "taxRate": 22,
+    "governmentSpending": 150
+  }
+}

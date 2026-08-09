@@ -1,0 +1,40 @@
+{
+  "projectSettings": {
+    "organizationName": "Undergraduate Economics Society",
+    "shortName": "UES",
+    "mainColor": "#B03A40",
+    "secondaryColor": "#F07B41",
+    "backgroundColor": "#FDF8F1",
+    "textColor": "#1C1817",
+    "typography": "'Inter', sans-serif",
+    "contactEmail": "contact@ues-economics.org",
+    "location": "Department of Economics, Social Sciences Building, Room 302"
+  },
+  "navigation": {
+    "headerLogo": "UES Bar Chart Red",
+    "centerLinks": [
+      { "label": "About", "href": "#about", "id": "about" },
+      { "label": "Case Comp", "href": "#case-comp", "id": "case-comp" },
+      { "label": "Events", "href": "#events", "id": "events" },
+      { "label": "Resources", "href": "#resources", "id": "resources" }
+    ],
+    "specialLink": {
+      "label": "Get Involved",
+      "href": "#get-involved",
+      "id": "get-involved",
+      "style": "contained-secondary"
+    }
+  },
+  "hero": {
+    "text_behind_object": "Fostering Tomorrow's Economic Leaders",
+    "subheading": "Empowering undergraduate minds through rigorous economic analysis, national case competitions, policy research, and premier industry networking.",
+    "object_3d_file": "ues_economic_model.glb",
+    "action": "continuous_rotation",
+    "stats": [
+      { "value": "650+", "label": "Active Student Members" },
+      { "value": "$10,000", "label": "Case Comp Prize Pool" },
+      { "value": "28+", "label": "Annual Events & Workshops" },
+      { "value": "98%", "label": "Finance/Consulting Placement" }
+    ]
+  }
+}
