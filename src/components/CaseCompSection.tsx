@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Trophy, Clock, Award, FileText, Download, Calendar, Users, Building, Landmark, Globe, ArrowRight, Sparkles } from 'lucide-react';
 import caseCompData from '../data/caseComp.json';
 import { RegistrationModal } from './RegistrationModal';
+import { Reveal, RevealItem } from './Reveal';
 
 export const CaseCompSection: React.FC = () => {
   const [isRegModalOpen, setIsRegModalOpen] = useState(false);
@@ -48,7 +49,7 @@ export const CaseCompSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
+        <Reveal className="text-center max-w-3xl mx-auto space-y-4">
           <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white border border-[#B03A40]/20 text-[10px] font-bold text-[#B03A40] uppercase tracking-widest shadow-xs">
             <Trophy className="w-3.5 h-3.5 text-[#F07B41]" /> Flagship Event
           </span>
@@ -58,10 +59,10 @@ export const CaseCompSection: React.FC = () => {
           <p className="text-base sm:text-lg text-[#524B47] leading-relaxed">
             {caseCompData.theme}
           </p>
-        </div>
+        </Reveal>
 
         {/* Live Countdown Banner - Bento Styled */}
-        <div className="bg-white/80 border border-[#B03A40]/20 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xs">
+        <Reveal className="bg-white/80 border border-[#B03A40]/20 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xs">
           <div className="space-y-1 text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start gap-2 text-[10px] font-bold uppercase tracking-widest text-[#F07B41]">
               <Clock className="w-4 h-4 text-[#F07B41]" /> Registration Deadline Countdown
@@ -96,11 +97,11 @@ export const CaseCompSection: React.FC = () => {
           >
             Register Team Now
           </button>
-        </div>
+        </Reveal>
 
         {/* Prize Pool Breakdown Grid ($10,000 Total) */}
         <div className="space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+          <Reveal className="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
             <div>
               <span className="text-[10px] font-bold uppercase tracking-widest text-[#F07B41]">Award Distribution</span>
               <h3 className="text-2xl font-black text-[#2D0A0C]">
@@ -110,13 +111,13 @@ export const CaseCompSection: React.FC = () => {
             <span className="text-xs text-[#605753] font-medium">
               Plus corporate interviews & executive judge networking
             </span>
-          </div>
+          </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <Reveal stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {caseCompData.prizes.map((prize, idx) => (
-              <div
+              <RevealItem
                 key={idx}
-                className={`rounded-3xl p-6 border transition-all duration-300 flex flex-col justify-between ${
+                className={`rounded-3xl p-6 border transition-[border-color,box-shadow] duration-300 flex flex-col justify-between ${
                   idx === 0
                     ? 'bg-gradient-to-b from-[#B03A40] to-[#842329] text-white border-[#B03A40] shadow-xl scale-102'
                     : 'bg-white/80 border-[#B03A40]/20 text-[#2D0A0C] hover:border-[#B03A40]'
@@ -136,21 +137,23 @@ export const CaseCompSection: React.FC = () => {
                     {prize.perks}
                   </p>
                 </div>
-              </div>
+              </RevealItem>
             ))}
-          </div>
+          </Reveal>
         </div>
 
         {/* Competition Tracks */}
         <div className="space-y-6">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-[#F07B41]">Track Focus Areas</span>
-          <h3 className="text-2xl font-black text-[#2D0A0C]">
-            Competition Tracks & Prompts
-          </h3>
+          <Reveal>
+            <span className="text-[10px] font-bold uppercase tracking-widest text-[#F07B41]">Track Focus Areas</span>
+            <h3 className="text-2xl font-black text-[#2D0A0C] mt-1">
+              Competition Tracks & Prompts
+            </h3>
+          </Reveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Reveal stagger className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {caseCompData.tracks.map((track) => (
-              <div
+              <RevealItem
                 key={track.id}
                 className="bg-white/80 border border-[#B03A40]/20 rounded-3xl p-6 space-y-3 hover:border-[#B03A40] transition-colors shadow-xs"
               >
@@ -163,13 +166,13 @@ export const CaseCompSection: React.FC = () => {
                 <p className="text-xs text-[#524B47] leading-relaxed">
                   {track.focus}
                 </p>
-              </div>
+              </RevealItem>
             ))}
-          </div>
+          </Reveal>
         </div>
 
         {/* Timeline Sequence - Bento Styled */}
-        <div className="bg-white/80 border border-[#B03A40]/20 rounded-3xl p-8 space-y-8 shadow-xs">
+        <Reveal className="bg-white/80 border border-[#B03A40]/20 rounded-3xl p-8 space-y-8 shadow-xs">
           <div className="flex items-center justify-between">
             <h3 className="text-xl font-bold text-[#2D0A0C] flex items-center gap-2">
               <Calendar className="w-5 h-5 text-[#B03A40]" /> Competition Schedule & Milestones
@@ -192,10 +195,10 @@ export const CaseCompSection: React.FC = () => {
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
 
         {/* Sponsors Banner */}
-        <div className="pt-6 border-t border-[#B03A40]/10 space-y-4">
+        <Reveal className="pt-6 border-t border-[#B03A40]/10 space-y-4">
           <div className="text-center">
             <span className="text-[10px] font-bold text-[#F07B41] uppercase tracking-widest">
               Proudly Sponsored & Judged By Industry Leaders
@@ -212,7 +215,7 @@ export const CaseCompSection: React.FC = () => {
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
       </div>
 
       {/* Registration Modal Integration */}

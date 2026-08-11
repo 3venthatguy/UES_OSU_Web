@@ -3,12 +3,8 @@ export const ASSETS = {
   logo: {
     jpeg: '/assets/logo/logo.jpeg',
   },
-  officers: {
-    president: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400',
-    vpAcademic: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400',
-    vpCaseComp: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400',
-    vpEvents: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400',
-  },
+  // Officer headshots are not listed here — they resolve from an officer's id
+  // against src/assets/profiles/. See src/lib/profilePhotos.ts.
   events: {
     caseCompKickoff: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=600',
     fedReservePanel: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=600',
@@ -16,7 +12,13 @@ export const ASSETS = {
     networkingNight: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=600',
   },
   models: {
-    economicModelGlb: '/assets/model/base_basic_shaded.glb',
-    baseBasicShadedGlb: '/assets/model/base_basic_shaded.glb',
+    // The hero's cartoon Earth, and its only 3D asset. Self-contained glTF 2.0
+    // binary: geometry and all six textures live in the .glb's binary chunk, so
+    // this is the single network request the hero waits on — no sibling texture
+    // folder is needed, and shipping one would be dead weight.
+    //
+    // Carries two ~30s animation clips (orbiting planes, drifting clouds, rigged
+    // whale tails) that EarthModel plays through an AnimationMixer.
+    earthCartoonGlb: '/assets/earth-cartoon/earth-cartoon.glb',
   },
 } as const;

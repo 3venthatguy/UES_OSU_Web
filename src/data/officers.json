@@ -1,70 +1,112 @@
 {
   "members": [
     {
-      "id": "1",
-      "name": "Maya Lin",
+      "id": "devarth-patel",
+      "name": "Devarth Patel",
       "title": "President",
-      "major": "Economics & Data Science '26",
-      "bio": "Specializes in quantitative macroeconomics and monetary policy research. Previously interned at the Federal Reserve Board and Goldman Sachs.",
-      "email": "m.lin@ues-economics.org",
-      "linkedin": "https://linkedin.com",
-      "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop&q=80",
+      "year": "'27",
+      "majors": [
+        "Economics"
+      ],
+      "minors": [
+        "International Relations & Diplomacy",
+        "Public Policy"
+      ],
+      "bio": "I am a rising four-year undergraduate student at Ohio State University pursuing a Bachelor of Science in Economics. Additionally, I am a Morrill Excellence Scholar and a Law & Society Scholar on the Pre-Law track. I am interested in developing a strong understanding of economic systems and financial policy to help create a more equitable and sustainable future for all.",
+      "email": "",
+      "linkedin": "https://www.linkedin.com/in/devarthpatel/",
+      "instagram": "",
       "committee": "Executive Board"
     },
     {
-      "id": "2",
-      "name": "Julian Vance",
-      "title": "Vice President of Operations",
-      "major": "Economics & Mathematics '26",
-      "bio": "Focuses on financial market dynamics and game theory. Incoming Investment Banking Analyst at Morgan Stanley.",
-      "email": "j.vance@ues-economics.org",
-      "linkedin": "https://linkedin.com",
-      "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80",
+      "id": "peter-chen",
+      "name": "Peter Chen",
+      "title": "Vice President",
+      "year": "'28",
+      "majors": [
+        "Economics"
+      ],
+      "minors": ["Statistics"],
+      "bio": "I am a second-year Economics major and Statistics minor at The Ohio State University with a strong interest in asset management, equity research, and financial markets. I am actively seeking internship opportunities in asset management, wealth management, and related areas of finance. I am passionate about growing my network with peers, mentors, and professionals in economics and finance.",
+      "email": "",
+      "linkedin": "https://www.linkedin.com/in/peterchen230/",
+      "instagram": "",
       "committee": "Executive Board"
     },
     {
-      "id": "3",
-      "name": "Sarah Chen",
-      "title": "Director of Case Competitions",
-      "major": "Financial Economics '27",
-      "bio": "Leads the planning and execution of the national UES Case Competition. Research fellow in industrial organization.",
-      "email": "s.chen@ues-economics.org",
-      "linkedin": "https://linkedin.com",
-      "photo": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&auto=format&fit=crop&q=80",
-      "committee": "Case Comp Committee"
+      "id": "adam-niktash",
+      "name": "Adam Niktash",
+      "title": "Treasurer",
+      "year": "27",
+      "majors": [
+        "Business Administration"
+      ],
+      "minors": [],
+      "bio": "A self-motivated individual pursuing a Business Administration degree at the Fisher School of Business. I am looking to develop my existing skills further and attend the Moritz College of Law.",
+      "email": "",
+      "linkedin": "https://www.linkedin.com/in/adam-niktash-1875a7295/",
+      "instagram": "",
+      "committee": "Executive Board"
     },
     {
-      "id": "4",
-      "name": "Marcus Thorne",
-      "title": "Director of Academic Affairs",
-      "major": "Economics & Public Policy '26",
-      "bio": "Coordinates peer tutoring, econometrics workshops, and faculty speaker panels. Passionate about labor market economics.",
-      "email": "m.thorne@ues-economics.org",
-      "linkedin": "https://linkedin.com",
-      "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80",
-      "committee": "Academic Affairs"
+      "id": "henry-gillies",
+      "name": "Henry Gillies",
+      "title": "Secretary",
+      "year": "'29",
+      "majors": [
+        "Economics"
+      ],
+      "minors": ["History", "Public Management"],
+      "bio": "I am Henry Gillies, a first-year Honors Economics (BS) student at Ohio State with minors in History and Public Management. I am devoted to promoting and improving the economic growth of Columbus and beyond. I do so through employment and community involvement, where I am building transferable skills for the public sector, nonprofit field, and economic policy research. Please don’t hesitate to reach out!",
+      "email": "",
+      "linkedin": "https://www.linkedin.com/in/henry-gillies-2685233b2/",
+      "instagram": "",
+      "committee": "Executive Board"
     },
     {
-      "id": "5",
-      "name": "Elena Rostova",
-      "title": "Director of Corporate Relations",
-      "major": "Economics & Statistics '27",
-      "bio": "Manages sponsor partnerships with Analysis Group, Cornerstone Research, and BlackRock. Organizing sponsor keynotes.",
-      "email": "e.rostova@ues-economics.org",
-      "linkedin": "https://linkedin.com",
-      "photo": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&auto=format&fit=crop&q=80",
-      "committee": "Corporate Relations"
+      "id": "kayla-wonsick",
+      "name": "Kayla Wonsick",
+      "title": "Director of Outreach & Engagement",
+      "year": "'29'",
+      "majors": [
+        "Economics", "Psychology"
+      ],
+      "minors": [],
+      "bio": "Second-year student at The Ohio State University pursuing dual B.S. degrees in Economics and Psychology. Experienced in research design, statistical analysis, and critical thinking, with a strong interest in economics and behavioral psychology.",
+      "email": "",
+      "linkedin": "https://www.linkedin.com/in/kwonsick/",
+      "instagram": "",
+      "committee": "Executive Board"
     },
     {
-      "id": "6",
-      "name": "David K. O'Connor",
-      "title": "Editor-in-Chief, Economic Review",
-      "major": "Economics & History '26",
-      "bio": "Oversees the peer review and publication of student research articles on macro-policy and behavioral economics.",
-      "email": "d.oconnor@ues-economics.org",
-      "linkedin": "https://linkedin.com",
-      "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&auto=format&fit=crop&q=80",
-      "committee": "Research & Journal"
+      "id": "emiliy-max",
+      "name": "Emiliy Max",
+      "title": "Director of Marketing",
+      "year": "'27",
+      "majors": [
+        "Business"
+      ],
+      "minors": ["Economics", "Business Analytics"],
+      "bio": "I am Emily Max, a third year business major studying economics and business analytics in the Fisher College of Business at Ohio State.",
+      "email": "",
+      "linkedin": "https://www.linkedin.com/in/emily-max1/",
+      "instagram": "",
+      "committee": "Executive Board"
+    },
+    {
+      "id": "evan-menges",
+      "name": "Evan Menges",
+      "title": "Director of Project Management",
+      "year": "'27'",
+      "majors": [
+        "Electrical Engineering", "Economics"
+      ],
+      "minors": ["Nuclear Engineering"],
+      "bio": "Fourth year undergraduate at Ohio State pursuing a double major in Electrical Engineering and Economics with a Minor in Nuclear Engineering. I am motivated to work in the nuclear infrastructure industry to use my experience in power systems, AI, and economics to support a renewable energy economy.",
+      "email": "",
+      "linkedin": "https://www.linkedin.com/in/evan-menges/",
+      "instagram": "",
+      "committee": "Executive Board"
     }
   ]
 }

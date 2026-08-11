@@ -3,11 +3,184 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
+    <title>UES at OSU</title>
+    <meta
+      name="description"
+      content="The Undergraduate Economics Society at Ohio State — case competitions, events and masterclasses, research resources, and student membership."
+    />
+
+    <!--
+      Tab icon, cropped from public/assets/logo/logo.jpeg. The source carries ~28%
+      white padding on every side; at 16px that shrinks the bars to mush, so these
+      are re-cropped to the mark itself. Regenerate all sizes together if the logo
+      changes — see the crop box in the commit that added them.
+    -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" href="/favicon-16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#B03A40" />
+
+    <!--
+      Splash screen CSS — single source of truth.
+
+      This block is inlined (never a stylesheet <link>) so #splash-boot below paints
+      on the very first frame with ZERO network requests. The hero pulls ~23 MiB of
+      3D assets; on a slow connection the alternative is a blank white page for a
+      long time.
+
+      src/components/SplashScreen.tsx reuses these class names and repeats these
+      exact colours and sizes in Tailwind arbitrary values, so the handoff from the
+      static panel to the React one is invisible. Change one, change both:
+        field #B03A40 · tile 88px / radius 16px / white · logo 56px
+        ring 132px / 3px stroke / #FDF8F1 @ 25% track / #F07B41 90deg arc
+        spin 1.15s linear infinite
+    -->
+    <style>
+      #splash-boot {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        background: #b03a40;
+        /* Tailwind's preflight hasn't loaded yet, so state the sans stack here or
+           the wordmark renders serif and then swaps. */
+        font-family: ui-sans-serif, system-ui, sans-serif;
+      }
+
+      #splash-boot .ues-splash-halo {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at center, #2d0a0c2e 0%, transparent 55%);
+      }
+
+      /* The mark is absolutely centred, not stacked above the text, so its position
+         is identical here and in SplashScreen.tsx regardless of what sits below. */
+      #splash-boot .ues-splash-mark {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #splash-boot .ues-splash-wordmark {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: calc(50% + 98px);
+        margin: 0;
+        padding: 0 1.5rem;
+        text-align: center;
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: 900;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #fdf8f1;
+      }
+
+      #splash-boot .ues-splash-tile {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 88px;
+        height: 88px;
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: 0 10px 15px -3px #2d0a0c40, 0 4px 6px -4px #2d0a0c40;
+      }
+
+      #splash-boot .ues-splash-tile img {
+        width: 56px;
+        height: 56px;
+        object-fit: contain;
+      }
+
+      .ues-splash-ring {
+        animation: ues-splash-spin 1.15s linear infinite;
+        transform-origin: 50% 50%;
+        /* Forces a compositor layer so the ring keeps turning while the main
+           thread is blocked parsing the 15 MiB .obj — that spin is the only
+           "still alive" signal during a multi-second parse, and the JS-driven
+           progress bar necessarily freezes right along with the parse. */
+        will-change: transform;
+      }
+
+      .ues-splash-fade {
+        animation: ues-splash-fade 300ms ease-out both;
+      }
+
+      @keyframes ues-splash-spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes ues-splash-fade {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .ues-splash-ring {
+          animation: none;
+        }
+        .ues-splash-fade {
+          animation: none;
+        }
+      }
+    </style>
   </head>
   <body>
+    <!--
+      Boot splash: the idle state of SplashScreen, rendered before any JS runs.
+      React removes it in a layout effect the moment its own splash paints.
+      The logo is a base64 data URI, not /assets/logo/logo.jpeg, so this renders
+      even when the network is unusable.
+    -->
+    <div id="splash-boot">
+      <div class="ues-splash-halo"></div>
+      <div class="ues-splash-mark">
+        <svg class="ues-splash-ring" width="132" height="132" viewBox="0 0 132 132" aria-hidden="true">
+          <circle cx="66" cy="66" r="64.5" fill="none" stroke="#FDF8F1" stroke-opacity="0.25" stroke-width="3" />
+          <circle
+            cx="66"
+            cy="66"
+            r="64.5"
+            fill="none"
+            stroke="#F07B41"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-dasharray="101 405"
+          />
+        </svg>
+        <div class="ues-splash-tile">
+          <img
+            alt=""
+            src="data:image/jpeg;base64,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"
+          />
+        </div>
+      </div>
+      <p class="ues-splash-wordmark">Undergraduate Economics Society</p>
+    </div>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <!--
+      Failsafe: if the bundle never loads or React throws, clear the panel rather
+      than leaving a permanent red screen with nothing behind it.
+    -->
+    <script>
+      setTimeout(function () {
+        var boot = document.getElementById('splash-boot');
+        if (boot) boot.remove();
+      }, 30000);
+    </script>
   </body>
 </html>
-

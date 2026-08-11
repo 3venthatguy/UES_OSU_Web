@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
 import { Sparkles, Send, CheckCircle2, ChevronDown, ChevronUp, Search, HelpCircle, Mail, User, ShieldCheck } from 'lucide-react';
 import faqsData from '../data/faqs.json';
+import { Reveal, RevealItem } from './Reveal';
 
 export const GetInvolvedSection: React.FC = () => {
   // Application Form State
@@ -51,7 +52,7 @@ export const GetInvolvedSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
+        <Reveal className="text-center max-w-3xl mx-auto space-y-4">
           <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white border border-[#B03A40]/20 text-[10px] font-bold text-[#F07B41] uppercase tracking-widest shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-[#B03A40]" /> Join The Community
           </span>
@@ -61,13 +62,13 @@ export const GetInvolvedSection: React.FC = () => {
           <p className="text-base sm:text-lg text-[#524B47] leading-relaxed">
             Become an active member or apply for committee leadership roles to shape the undergraduate economics experience.
           </p>
-        </div>
+        </Reveal>
 
         {/* Membership Application Form & Info Box - Bento Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
+        <Reveal stagger className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
           {/* Left Info Panel - Bento Card */}
-          <div className="lg:col-span-5 bg-white/80 border border-[#B03A40]/20 rounded-3xl p-8 space-y-6 shadow-xs">
+          <RevealItem className="lg:col-span-5 bg-white/80 border border-[#B03A40]/20 rounded-3xl p-8 space-y-6 shadow-xs">
             <div className="space-y-2">
               <span className="text-[10px] font-bold uppercase tracking-widest text-[#F07B41]">
                 Why Join UES?
@@ -96,10 +97,10 @@ export const GetInvolvedSection: React.FC = () => {
               <div className="font-bold text-[#2D0A0C]">Zero Membership Fees</div>
               <p>General society membership is 100% free for all university students.</p>
             </div>
-          </div>
+          </RevealItem>
 
           {/* Right Application Form - Bento Card */}
-          <div className="lg:col-span-7 bg-white/80 border border-[#B03A40]/20 rounded-3xl p-6 sm:p-8 shadow-xs">
+          <RevealItem className="lg:col-span-7 bg-white/80 border border-[#B03A40]/20 rounded-3xl p-6 sm:p-8 shadow-xs">
             {!submitted ? (
               <form onSubmit={handleAppSubmit} className="space-y-6">
                 <div className="space-y-1">
@@ -239,12 +240,12 @@ export const GetInvolvedSection: React.FC = () => {
                 </button>
               </div>
             )}
-          </div>
-        </div>
+          </RevealItem>
+        </Reveal>
 
         {/* Searchable FAQ Section */}
         <div className="space-y-8 pt-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <Reveal className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
               <span className="text-[10px] font-bold uppercase tracking-widest text-[#F07B41]">Frequently Asked Questions</span>
               <h3 className="text-2xl sm:text-3xl font-black text-[#2D0A0C] mt-1">
@@ -268,15 +269,15 @@ export const GetInvolvedSection: React.FC = () => {
                 </button>
               ))}
             </div>
-          </div>
+          </Reveal>
 
           {/* Accordions */}
-          <div className="space-y-3 max-w-4xl mx-auto">
+          <Reveal stagger className="space-y-3 max-w-4xl mx-auto">
             {filteredFaqs.map((faq) => {
               const isOpen = activeFaq === faq.id;
 
               return (
-                <div
+                <RevealItem
                   key={faq.id}
                   className="bg-white/80 border border-[#B03A40]/20 rounded-2xl overflow-hidden shadow-xs transition-colors"
                 >
@@ -296,10 +297,10 @@ export const GetInvolvedSection: React.FC = () => {
                       {faq.a}
                     </div>
                   )}
-                </div>
+                </RevealItem>
               );
             })}
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

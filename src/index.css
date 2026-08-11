@@ -1,1 +1,4 @@
 @import "tailwindcss";
+/* Lenis needs `html.lenis { height: auto }` and the `.lenis-stopped` overflow
+   clip that backs `setScrollLocked()`. See src/lib/smoothScroll.ts. */
+@import "lenis/dist/lenis.css";

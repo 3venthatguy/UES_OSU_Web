@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { EventItem } from '../types';
+import { useScrollLock } from '../lib/useScrollLock';
 import { Calendar, CheckCircle2, Clock, MapPin, User, Mail, Download, ExternalLink, X } from 'lucide-react';
 
 interface RSVPModalProps {
@@ -7,11 +9,17 @@ interface RSVPModalProps {
   onClose: () => void;
 }
 
-export const RSVPModal: React.FC<RSVPModalProps> = ({ event, onClose }) => {
+/**
+ * Mounted only while an event is selected, so its form state starts fresh every
+ * time — RSVPing for one event no longer leaves the confirmation screen showing
+ * when the next one opens.
+ */
+const RSVPModalContent: React.FC<{ event: EventItem; onClose: () => void }> = ({ event, onClose }) => {
   const [formData, setFormData] = useState({ name: '', email: '', major: 'Economics' });
   const [confirmed, setConfirmed] = useState(false);
+  const reduce = useReducedMotion() ?? false;
 
-  if (!event) return null;
+  useScrollLock(true);
 
   const handleRSVP = (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,8 +31,20 @@ export const RSVPModal: React.FC<RSVPModalProps> = ({ event, onClose }) => {
   const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&details=${encodeURIComponent(event.description)}&location=${encodeURIComponent(event.location)}`;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200">
-      <div className="bg-[#FFFDF9] border border-[#EADBCE] rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl relative space-y-6">
+    <motion.div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: reduce ? 0 : 0.2 }}
+    >
+      <motion.div
+        className="bg-[#FFFDF9] border border-[#EADBCE] rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl relative space-y-6"
+        initial={reduce ? undefined : { opacity: 0, y: 16, scale: 0.97 }}
+        animate={reduce ? undefined : { opacity: 1, y: 0, scale: 1 }}
+        exit={reduce ? undefined : { opacity: 0, y: 8, scale: 0.98 }}
+        transition={{ duration: reduce ? 0 : 0.22, ease: [0.22, 1, 0.36, 1] }}
+      >
         
         <button
           onClick={onClose}
@@ -125,7 +145,13 @@ export const RSVPModal: React.FC<RSVPModalProps> = ({ event, onClose }) => {
             </div>
           </div>
         )}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
+
+export const RSVPModal: React.FC<RSVPModalProps> = ({ event, onClose }) => (
+  <AnimatePresence>
+    {event && <RSVPModalContent event={event} onClose={onClose} />}
+  </AnimatePresence>
+);

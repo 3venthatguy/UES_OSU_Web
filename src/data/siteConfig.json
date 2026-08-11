@@ -6,17 +6,36 @@
     "secondaryColor": "#F07B41",
     "backgroundColor": "#FDF8F1",
     "textColor": "#1C1817",
-    "typography": "'Inter', sans-serif",
-    "contactEmail": "contact@ues-economics.org",
-    "location": "Department of Economics, Social Sciences Building, Room 302"
+    "typography": "'Inter', sans-serif"
   },
   "navigation": {
     "headerLogo": "UES Bar Chart Red",
     "centerLinks": [
-      { "label": "About", "href": "#about", "id": "about" },
-      { "label": "Case Comp", "href": "#case-comp", "id": "case-comp" },
-      { "label": "Events", "href": "#events", "id": "events" },
-      { "label": "Resources", "href": "#resources", "id": "resources" }
+      {
+        "label": "Home",
+        "href": "#hero",
+        "id": "hero"
+      },
+      {
+        "label": "About",
+        "href": "#about",
+        "id": "about"
+      },
+      {
+        "label": "Case Comp",
+        "href": "#case-comp",
+        "id": "case-comp"
+      },
+      {
+        "label": "Events",
+        "href": "#events",
+        "id": "events"
+      },
+      {
+        "label": "Resources",
+        "href": "#resources",
+        "id": "resources"
+      }
     ],
     "specialLink": {
       "label": "Get Involved",
@@ -31,10 +50,22 @@
     "object_3d_file": "ues_economic_model.glb",
     "action": "continuous_rotation",
     "stats": [
-      { "value": "650+", "label": "Active Student Members" },
-      { "value": "$10,000", "label": "Case Comp Prize Pool" },
-      { "value": "28+", "label": "Annual Events & Workshops" },
-      { "value": "98%", "label": "Finance/Consulting Placement" }
+      {
+        "value": "650+",
+        "label": "Active Student Members"
+      },
+      {
+        "value": "$10,000",
+        "label": "Case Comp Prize Pool"
+      },
+      {
+        "value": "28+",
+        "label": "Annual Events & Workshops"
+      },
+      {
+        "value": "98%",
+        "label": "Finance/Consulting Placement"
+      }
     ]
   }
 }

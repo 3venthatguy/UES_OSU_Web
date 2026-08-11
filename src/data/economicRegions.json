@@ -1,0 +1,409 @@
+{
+  "meta": {
+    "source": "World Bank World Development Indicators",
+    "sourceUrl": "https://data.worldbank.org",
+    "vintage": "2025 unless a figure states otherwise",
+    "units": "Nominal GDP in current US dollars unless noted",
+    "note": "Regional aggregates and country figures are World Bank WDI series taken unmodified. The one exception is share of world GDP, which is each region’s published GDP over the published world total — the seven regions sum to 99.996% of it."
+  },
+  "regions": [
+    {
+      "id": "north-america",
+      "name": "North America",
+      "blurb": "The United States, Canada and Bermuda. Three economies and 384 million people — 4.7% of the world’s population producing 28% of its output. The highest income per head of any region by a wide margin, roughly two and a half times Europe & Central Asia’s.",
+      "pin": [
+        -0.3398,
+        0.6452,
+        0.6843
+      ],
+      "indicators": [
+        {
+          "label": "GDP (nominal)",
+          "value": "$33.1T"
+        },
+        {
+          "label": "Share of world GDP",
+          "value": "28.0%"
+        },
+        {
+          "label": "Real GDP growth, 2025",
+          "value": "2.1%"
+        },
+        {
+          "label": "GDP per capita",
+          "value": "$86,308"
+        },
+        {
+          "label": "Inflation (CPI), 2024",
+          "value": "2.7%"
+        },
+        {
+          "label": "Population",
+          "value": "384M"
+        },
+        {
+          "label": "Unemployment",
+          "value": "4.5%"
+        }
+      ],
+      "economies": [
+        {
+          "name": "United States",
+          "gdp": "$30.8T"
+        },
+        {
+          "name": "Canada",
+          "gdp": "$2.3T"
+        }
+      ]
+    },
+    {
+      "id": "latin-america",
+      "name": "Latin America & the Caribbean",
+      "blurb": "Forty-two economies from Mexico to Argentina, plus the Caribbean. Home to 8% of the world’s people and 6% of its output, growing at 2.3% against a world average of 2.9%.",
+      "pin": [
+        0.2245,
+        -0.4236,
+        0.8776
+      ],
+      "indicators": [
+        {
+          "label": "GDP (nominal)",
+          "value": "$7.4T"
+        },
+        {
+          "label": "Share of world GDP",
+          "value": "6.2%"
+        },
+        {
+          "label": "Real GDP growth, 2025",
+          "value": "2.3%"
+        },
+        {
+          "label": "GDP per capita",
+          "value": "$11,095"
+        },
+        {
+          "label": "Inflation (CPI), 2025",
+          "value": "2.3%"
+        },
+        {
+          "label": "Population",
+          "value": "667M"
+        },
+        {
+          "label": "Unemployment",
+          "value": "5.5%"
+        }
+      ],
+      "economies": [
+        {
+          "name": "Brazil",
+          "gdp": "$2.3T"
+        },
+        {
+          "name": "Mexico",
+          "gdp": "$1.8T"
+        },
+        {
+          "name": "Argentina",
+          "gdp": "$683B"
+        },
+        {
+          "name": "Colombia",
+          "gdp": "$457B"
+        }
+      ]
+    },
+    {
+      "id": "sub-saharan-africa",
+      "name": "Sub-Saharan Africa",
+      "blurb": "Forty-eight economies and 1.3 billion people producing under 2% of world output. The lowest income per head anywhere — $1,673 against a world average of $14,406 — but the second-fastest growth of any region, behind only South Asia.",
+      "pin": [
+        0.9831,
+        -0.1548,
+        -0.0976
+      ],
+      "indicators": [
+        {
+          "label": "GDP (nominal)",
+          "value": "$2.2T"
+        },
+        {
+          "label": "Share of world GDP",
+          "value": "1.9%"
+        },
+        {
+          "label": "Real GDP growth, 2025",
+          "value": "4.1%"
+        },
+        {
+          "label": "GDP per capita",
+          "value": "$1,673"
+        },
+        {
+          "label": "Inflation (CPI), 2025",
+          "value": "3.4%"
+        },
+        {
+          "label": "Population",
+          "value": "1.32B"
+        },
+        {
+          "label": "Unemployment",
+          "value": "5.7%"
+        }
+      ],
+      "economies": [
+        {
+          "name": "South Africa",
+          "gdp": "$427B"
+        },
+        {
+          "name": "Nigeria",
+          "gdp": "$291B"
+        },
+        {
+          "name": "Kenya",
+          "gdp": "$136B"
+        },
+        {
+          "name": "Ethiopia",
+          "gdp": "$126B"
+        }
+      ]
+    },
+    {
+      "id": "middle-east-north-africa",
+      "name": "Middle East & North Africa",
+      "blurb": "From Morocco to Iran, and — since the World Bank redrew this region — Afghanistan and Pakistan as well, which is why these figures cover 828 million people. Carries the highest unemployment of any region, at 7.8%.",
+      "pin": [
+        0.8576,
+        0.4694,
+        -0.2102
+      ],
+      "indicators": [
+        {
+          "label": "GDP (nominal)",
+          "value": "$5.1T"
+        },
+        {
+          "label": "Share of world GDP",
+          "value": "4.3%"
+        },
+        {
+          "label": "Real GDP growth, 2025",
+          "value": "2.7%"
+        },
+        {
+          "label": "GDP per capita",
+          "value": "$6,202"
+        },
+        {
+          "label": "Inflation (CPI), 2025",
+          "value": "2.1%"
+        },
+        {
+          "label": "Population",
+          "value": "828M"
+        },
+        {
+          "label": "Unemployment",
+          "value": "7.8%"
+        }
+      ],
+      "economies": [
+        {
+          "name": "Saudi Arabia",
+          "gdp": "$1.3T"
+        },
+        {
+          "name": "Israel",
+          "gdp": "$611B"
+        },
+        {
+          "name": "Pakistan",
+          "gdp": "$407B"
+        },
+        {
+          "name": "Egypt",
+          "gdp": "$365B"
+        }
+      ]
+    },
+    {
+      "id": "europe-central-asia",
+      "name": "Europe & Central Asia",
+      "blurb": "Fifty-eight economies from Portugal to the Russian Far East, taking in Türkiye and Central Asia. Third-largest region by output at 27% of the world, but the slowest-growing at 1.7% and the highest inflation of any region.",
+      "pin": [
+        0.3531,
+        0.8192,
+        -0.452
+      ],
+      "indicators": [
+        {
+          "label": "GDP (nominal)",
+          "value": "$32.3T"
+        },
+        {
+          "label": "Share of world GDP",
+          "value": "27.3%"
+        },
+        {
+          "label": "Real GDP growth, 2025",
+          "value": "1.7%"
+        },
+        {
+          "label": "GDP per capita",
+          "value": "$34,603"
+        },
+        {
+          "label": "Inflation (CPI), 2025",
+          "value": "3.7%"
+        },
+        {
+          "label": "Population",
+          "value": "933M"
+        },
+        {
+          "label": "Unemployment",
+          "value": "5.4%"
+        }
+      ],
+      "economies": [
+        {
+          "name": "Germany",
+          "gdp": "$5.1T"
+        },
+        {
+          "name": "United Kingdom",
+          "gdp": "$4.0T"
+        },
+        {
+          "name": "France",
+          "gdp": "$3.4T"
+        },
+        {
+          "name": "Russia",
+          "gdp": "$2.6T"
+        }
+      ]
+    },
+    {
+      "id": "south-asia",
+      "name": "South Asia",
+      "blurb": "India, Bangladesh, Sri Lanka, Nepal, Bhutan and the Maldives — six economies, since Afghanistan and Pakistan now sit with the Middle East. The fastest-growing region in the world at 7.1%, on output of just $2,705 a head.",
+      "pin": [
+        0.4329,
+        0.3785,
+        -0.8181
+      ],
+      "indicators": [
+        {
+          "label": "GDP (nominal)",
+          "value": "$4.6T"
+        },
+        {
+          "label": "Share of world GDP",
+          "value": "3.9%"
+        },
+        {
+          "label": "Real GDP growth, 2025",
+          "value": "7.1%"
+        },
+        {
+          "label": "GDP per capita",
+          "value": "$2,705"
+        },
+        {
+          "label": "Inflation (CPI), 2025",
+          "value": "3.1%"
+        },
+        {
+          "label": "Population",
+          "value": "1.69B"
+        },
+        {
+          "label": "Unemployment",
+          "value": "4.2%"
+        }
+      ],
+      "economies": [
+        {
+          "name": "India",
+          "gdp": "$4.0T"
+        },
+        {
+          "name": "Bangladesh",
+          "gdp": "$456B"
+        },
+        {
+          "name": "Sri Lanka",
+          "gdp": "$109B"
+        },
+        {
+          "name": "Nepal",
+          "gdp": "$45B"
+        }
+      ]
+    },
+    {
+      "id": "east-asia-pacific",
+      "name": "East Asia & Pacific",
+      "blurb": "China, Japan, Korea and Southeast Asia, plus Australia and the Pacific islands. The largest regional economy in the world, narrowly ahead of North America, and with 2.4 billion people it has both the lowest inflation and the lowest unemployment of any region.",
+      "pin": [
+        -0.0885,
+        0.5158,
+        -0.8521
+      ],
+      "indicators": [
+        {
+          "label": "GDP (nominal)",
+          "value": "$33.7T"
+        },
+        {
+          "label": "Share of world GDP",
+          "value": "28.4%"
+        },
+        {
+          "label": "Real GDP growth, 2025",
+          "value": "4.0%"
+        },
+        {
+          "label": "GDP per capita",
+          "value": "$14,077"
+        },
+        {
+          "label": "Inflation (CPI), 2025",
+          "value": "1.9%"
+        },
+        {
+          "label": "Population",
+          "value": "2.39B"
+        },
+        {
+          "label": "Unemployment",
+          "value": "3.8%"
+        }
+      ],
+      "economies": [
+        {
+          "name": "China",
+          "gdp": "$19.5T"
+        },
+        {
+          "name": "Japan",
+          "gdp": "$4.4T"
+        },
+        {
+          "name": "South Korea",
+          "gdp": "$1.9T"
+        },
+        {
+          "name": "Australia",
+          "gdp": "$1.8T"
+        }
+      ]
+    }
+  ]
+}

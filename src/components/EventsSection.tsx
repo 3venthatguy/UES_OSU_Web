@@ -3,6 +3,7 @@ import eventsData from '../data/events.json';
 import { EventItem } from '../types';
 import { Calendar, Clock, MapPin, Search, Users, ArrowUpRight, Sparkles } from 'lucide-react';
 import { RSVPModal } from './RSVPModal';
+import { Reveal, RevealItem } from './Reveal';
 
 export const EventsSection: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
@@ -25,7 +26,7 @@ export const EventsSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Header & Controls */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <Reveal className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="space-y-2 max-w-xl">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-[#B03A40]/20 text-[10px] font-bold text-[#B03A40] uppercase tracking-widest shadow-xs">
               <Calendar className="w-3.5 h-3.5 text-[#F07B41]" /> Society Calendar
@@ -69,17 +70,17 @@ export const EventsSection: React.FC = () => {
               ))}
             </div>
           </div>
-        </div>
+        </Reveal>
 
         {/* Upcoming Events Grid - Bento Card Modules */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <Reveal stagger className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {filteredUpcoming.map((event) => {
             const capacityPercent = Math.min(100, Math.round((event.rsvps / event.capacity) * 100));
 
             return (
-              <div
+              <RevealItem
                 key={event.id}
-                className="bg-white/80 border border-[#B03A40]/20 rounded-3xl p-6 sm:p-8 shadow-xs hover:shadow-md hover:border-[#B03A40] transition-all flex flex-col justify-between space-y-6"
+                className="bg-white/80 border border-[#B03A40]/20 rounded-3xl p-6 sm:p-8 shadow-xs hover:shadow-md hover:border-[#B03A40] transition-[box-shadow,border-color] flex flex-col justify-between space-y-6"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between gap-2">
@@ -137,13 +138,13 @@ export const EventsSection: React.FC = () => {
                     RSVP Seat
                   </button>
                 </div>
-              </div>
+              </RevealItem>
             );
           })}
-        </div>
+        </Reveal>
 
         {/* Past Events Archive Summary - Bento Container */}
-        <div className="bg-white/80 border border-[#B03A40]/20 rounded-3xl p-8 space-y-6 shadow-xs">
+        <Reveal className="bg-white/80 border border-[#B03A40]/20 rounded-3xl p-8 space-y-6 shadow-xs">
           <div className="flex items-center justify-between">
             <div>
               <span className="text-[10px] font-bold uppercase tracking-widest text-[#F07B41]">Event Archive</span>
@@ -164,7 +165,7 @@ export const EventsSection: React.FC = () => {
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
       </div>
 
       {/* RSVP Modal */}

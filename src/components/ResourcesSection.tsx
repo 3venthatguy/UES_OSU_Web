@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BookOpen, Download, FileText, Sliders, TrendingUp, DollarSign, Activity, AlertCircle, CheckCircle2, ArrowRight } from 'lucide-react';
 import resourcesData from '../data/resources.json';
+import { Reveal, RevealItem } from './Reveal';
 
 export const ResourcesSection: React.FC = () => {
   // Simulator Controls State
@@ -33,7 +34,7 @@ export const ResourcesSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
+        <Reveal className="text-center max-w-3xl mx-auto space-y-4">
           <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white border border-[#B03A40]/20 text-[10px] font-bold text-[#B03A40] uppercase tracking-widest shadow-xs">
             <BookOpen className="w-3.5 h-3.5 text-[#F07B41]" /> Knowledge Hub & Tools
           </span>
@@ -43,24 +44,24 @@ export const ResourcesSection: React.FC = () => {
           <p className="text-base sm:text-lg text-[#524B47] leading-relaxed">
             Access exam prep guides, econometrics code repositories, research journals, and model policy outcomes live.
           </p>
-        </div>
+        </Reveal>
 
         {/* Academic Guides & Download Center - Bento Cards */}
         <div className="space-y-6">
-          <div className="flex justify-between items-end">
+          <Reveal className="flex justify-between items-end">
             <div>
               <span className="text-[10px] font-bold uppercase tracking-widest text-[#F07B41]">Repository</span>
               <h3 className="text-2xl font-black text-[#2D0A0C]">
                 Study Guides & Research Publications
               </h3>
             </div>
-          </div>
+          </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <Reveal stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {resourcesData.academicGuides.map((res) => (
-              <div
+              <RevealItem
                 key={res.id}
-                className="bg-white/80 border border-[#B03A40]/20 rounded-3xl p-6 shadow-xs hover:border-[#B03A40] transition-all flex flex-col justify-between space-y-4"
+                className="bg-white/80 border border-[#B03A40]/20 rounded-3xl p-6 shadow-xs hover:border-[#B03A40] transition-colors flex flex-col justify-between space-y-4"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
@@ -94,13 +95,13 @@ export const ResourcesSection: React.FC = () => {
                     <Download className="w-3.5 h-3.5" />
                   </a>
                 </div>
-              </div>
+              </RevealItem>
             ))}
-          </div>
+          </Reveal>
         </div>
 
         {/* Interactive Macroeconomic Policy Simulator - Bento Container */}
-        <div className="bg-white/80 border border-[#B03A40]/20 rounded-3xl p-6 sm:p-10 space-y-8 shadow-xs">
+        <Reveal className="bg-white/80 border border-[#B03A40]/20 rounded-3xl p-6 sm:p-10 space-y-8 shadow-xs">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-[#B03A40]/10">
             <div className="space-y-1">
               <span className="px-3 py-1 rounded-full bg-[#B03A40] text-white text-[10px] font-bold uppercase tracking-widest inline-flex items-center gap-1.5">
@@ -274,7 +275,7 @@ export const ResourcesSection: React.FC = () => {
 
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

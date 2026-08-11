@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import confetti from 'canvas-confetti';
 import { Trophy, Users, CheckCircle2, AlertCircle, Send, Sparkles, X } from 'lucide-react';
 import caseCompData from '../data/caseComp.json';
+import { useScrollLock } from '../lib/useScrollLock';
 
 interface RegistrationModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose }) => {
+/** Mounted only while open, so the form starts fresh on every open. */
+const RegistrationModalContent: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const [formData, setFormData] = useState({
     teamName: '',
     university: '',
@@ -24,8 +27,9 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
 
   const [submitted, setSubmitted] = useState(false);
   const [refId, setRefId] = useState('');
+  const reduce = useReducedMotion() ?? false;
 
-  if (!isOpen) return null;
+  useScrollLock(true);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,8 +49,21 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200 overflow-y-auto">
-      <div className="bg-[#FFFDF9] border border-[#EADBCE] rounded-3xl p-6 sm:p-8 max-w-2xl w-full shadow-2xl relative my-8 space-y-6">
+    <motion.div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs overflow-y-auto"
+      data-lenis-prevent
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: reduce ? 0 : 0.2 }}
+    >
+      <motion.div
+        className="bg-[#FFFDF9] border border-[#EADBCE] rounded-3xl p-6 sm:p-8 max-w-2xl w-full shadow-2xl relative my-8 space-y-6"
+        initial={reduce ? undefined : { opacity: 0, y: 16, scale: 0.97 }}
+        animate={reduce ? undefined : { opacity: 1, y: 0, scale: 1 }}
+        exit={reduce ? undefined : { opacity: 0, y: 8, scale: 0.98 }}
+        transition={{ duration: reduce ? 0 : 0.22, ease: [0.22, 1, 0.36, 1] }}
+      >
         
         {/* Close Button */}
         <button
@@ -237,7 +254,13 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
             </div>
           </div>
         )}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
+
+export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose }) => (
+  <AnimatePresence>
+    {isOpen && <RegistrationModalContent onClose={onClose} />}
+  </AnimatePresence>
+);

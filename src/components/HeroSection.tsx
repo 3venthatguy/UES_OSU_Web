@@ -1,7 +1,8 @@
 import React from 'react';
-import { Economic3DModel } from './Economic3DModel';
+import { EarthModel } from './EarthModel';
 import { Trophy, Calendar, ArrowRight, TrendingUp, Users, ShieldCheck, Sparkles } from 'lucide-react';
 import siteConfig from '../data/siteConfig.json';
+import { Reveal, RevealItem } from './Reveal';
 
 interface HeroSectionProps {
   onNavigate: (id: string) => void;
@@ -32,9 +33,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
             </h1>
           </div>
 
-          {/* Layer 2 (IN FRONT): Interactive 3D Economic Model Canvas */}
+          {/* Layer 2 (IN FRONT): Interactive 3D Earth Canvas */}
           <div className="relative z-10 w-full max-w-5xl">
-            <Economic3DModel />
+            <EarthModel />
           </div>
 
           {/* Subheading & Action Buttons beneath 3D Scene */}
@@ -65,10 +66,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
         </div>
 
         {/* Hero Bento Grid Highlights Row */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 pt-6">
-          
+        <Reveal stagger className="grid grid-cols-1 md:grid-cols-12 gap-6 pt-6">
+
           {/* Bento Card 1: Mission & Membership Metrics */}
-          <div className="md:col-span-5 border border-[#B03A40]/20 rounded-3xl p-6 sm:p-8 bg-white/80 backdrop-blur-xs flex flex-col justify-between space-y-6 shadow-xs hover:border-[#B03A40]/40 transition-colors">
+          <RevealItem className="md:col-span-5 border border-[#B03A40]/20 rounded-3xl p-6 sm:p-8 bg-white/80 backdrop-blur-xs flex flex-col justify-between space-y-6 shadow-xs hover:border-[#B03A40]/40 transition-colors">
             <div className="space-y-3">
               <span className="text-[10px] uppercase tracking-widest font-bold text-[#F07B41]">Our Mission</span>
               <h3 className="text-2xl font-bold text-[#B03A40] leading-tight">
@@ -89,10 +90,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
                 <div className="text-[11px] font-semibold text-[#605753] uppercase tracking-wider">Case Comp Pool</div>
               </div>
             </div>
-          </div>
+          </RevealItem>
 
           {/* Bento Card 2: Featured Events Preview */}
-          <div className="md:col-span-4 border border-[#B03A40]/20 rounded-3xl p-6 sm:p-8 bg-white/80 backdrop-blur-xs flex flex-col justify-between space-y-4 shadow-xs hover:border-[#B03A40]/40 transition-colors">
+          <RevealItem className="md:col-span-4 border border-[#B03A40]/20 rounded-3xl p-6 sm:p-8 bg-white/80 backdrop-blur-xs flex flex-col justify-between space-y-4 shadow-xs hover:border-[#B03A40]/40 transition-colors">
             <div>
               <span className="text-[10px] uppercase tracking-widest font-bold text-[#F07B41] mb-4 block">
                 Upcoming Spotlight
@@ -129,10 +130,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
               <span>View Full Calendar</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
-          </div>
+          </RevealItem>
 
           {/* Bento Card 3: High Impact Solid Accent Box */}
-          <div className="md:col-span-3 border border-[#B03A40] rounded-3xl p-6 sm:p-8 bg-[#B03A40] text-white flex flex-col justify-between space-y-6 shadow-md">
+          <RevealItem className="md:col-span-3 border border-[#B03A40] rounded-3xl p-6 sm:p-8 bg-[#B03A40] text-white flex flex-col justify-between space-y-6 shadow-md">
             <span className="text-[10px] uppercase tracking-widest font-bold text-[#FFD3B5]">
               Active Resources
             </span>
@@ -148,9 +149,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
             >
               Access Resource Archive
             </button>
-          </div>
+          </RevealItem>
 
-        </div>
+        </Reveal>
       </div>
     </section>
   );

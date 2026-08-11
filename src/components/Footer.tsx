@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { UESLogo } from './UESLogo';
-import { Mail, MapPin, Send, CheckCircle2, ArrowUpRight, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, MapPin, Send, CheckCircle2, ArrowUpRight } from 'lucide-react';
 import siteConfig from '../data/siteConfig.json';
+import { contact, contactMailto, getSocialIcon, socials } from '../lib/contact';
+import { Reveal, RevealItem } from './Reveal';
 
 interface FooterProps {
   onNavigate: (id: string) => void;
@@ -22,10 +24,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Bento Grid Footer Card Container */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-[#3A3331]">
-          
+        <Reveal stagger className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-[#3A3331]">
+
           {/* Brand Info - Bento Card */}
-          <div className="md:col-span-5 bg-[#25201E] border border-[#3A3331] rounded-3xl p-6 sm:p-8 space-y-4">
+          <RevealItem className="md:col-span-5 bg-[#25201E] border border-[#3A3331] rounded-3xl p-6 sm:p-8 space-y-4">
             <div className="cursor-pointer" onClick={() => onNavigate('hero')}>
               <UESLogo size="md" textColor="text-white" />
             </div>
@@ -34,19 +36,24 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </p>
 
             <div className="space-y-2 text-xs text-[#C2BAB5] pt-2 border-t border-[#3A3331]">
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#F07B41]" />
-                <span>{siteConfig.projectSettings.contactEmail}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#B03A40]" />
-                <span>{siteConfig.projectSettings.location}</span>
-              </div>
+              <a href={contactMailto} className="flex items-center gap-2 hover:text-white transition-colors">
+                <Mail className="w-4 h-4 text-[#F07B41] shrink-0" />
+                <span>{contact.email}</span>
+              </a>
+              <a
+                href={contact.location.mapsUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 hover:text-white transition-colors"
+              >
+                <MapPin className="w-4 h-4 text-[#B03A40] shrink-0" />
+                <span>{contact.location.full}</span>
+              </a>
             </div>
-          </div>
+          </RevealItem>
 
           {/* Quick Nav Links - Bento Card */}
-          <div className="md:col-span-3 bg-[#25201E] border border-[#3A3331] rounded-3xl p-6 sm:p-8 space-y-4 flex flex-col justify-between">
+          <RevealItem className="md:col-span-3 bg-[#25201E] border border-[#3A3331] rounded-3xl p-6 sm:p-8 space-y-4 flex flex-col justify-between">
             <div className="space-y-3">
               <span className="text-[10px] font-bold uppercase tracking-widest text-[#F07B41]">
                 Quick Links
@@ -72,10 +79,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <span>Get Involved</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-[#FFD3B5]" />
             </button>
-          </div>
+          </RevealItem>
 
           {/* Newsletter Box - Bento Card */}
-          <div className="md:col-span-4 bg-[#25201E] border border-[#3A3331] rounded-3xl p-6 sm:p-8 space-y-4 flex flex-col justify-between">
+          <RevealItem className="md:col-span-4 bg-[#25201E] border border-[#3A3331] rounded-3xl p-6 sm:p-8 space-y-4 flex flex-col justify-between">
             <div className="space-y-2">
               <span className="text-[10px] font-bold uppercase tracking-widest text-[#F07B41]">
                 Economics Dispatch
@@ -111,27 +118,34 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <span>Subscribed! Check inbox for welcome edition.</span>
               </div>
             )}
-          </div>
-        </div>
+          </RevealItem>
+        </Reveal>
 
         {/* Bottom Rights & Socials */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8A817D]">
+        <Reveal className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8A817D]">
           <div>
             © {new Date().getFullYear()} Undergraduate Economics Society (UES). All rights reserved.
           </div>
 
           <div className="flex items-center gap-4">
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors p-2 bg-[#25201E] rounded-full border border-[#3A3331]">
-              <Linkedin className="w-4 h-4" />
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors p-2 bg-[#25201E] rounded-full border border-[#3A3331]">
-              <Twitter className="w-4 h-4" />
-            </a>
-            <a href="https://github.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors p-2 bg-[#25201E] rounded-full border border-[#3A3331]">
-              <Github className="w-4 h-4" />
-            </a>
+            {socials.map((social) => {
+              const Icon = getSocialIcon(social)!;
+              return (
+                <a
+                  key={social.id}
+                  href={social.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`UES on ${social.label}`}
+                  title={social.handle}
+                  className="hover:text-white transition-colors p-2 bg-[#25201E] rounded-full border border-[#3A3331]"
+                >
+                  <Icon className="w-4 h-4" />
+                </a>
+              );
+            })}
           </div>
-        </div>
+        </Reveal>
       </div>
     </footer>
   );

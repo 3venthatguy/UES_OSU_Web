@@ -1,0 +1,35 @@
+{
+  "email": "ues@osu.edu",
+  "location": {
+    "name": "Arps Hall",
+    "street": "1945 N High St",
+    "city": "Columbus",
+    "state": "OH",
+    "zip": "43210",
+    "full": "Arps Hall, 1945 N High St, Columbus, OH 43210",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Arps+Hall%2C+1945+N+High+St%2C+Columbus%2C+OH+43210"
+  },
+  "socials": [
+    {
+      "id": "instagram",
+      "label": "Instagram",
+      "handle": "@ues_ohiostate",
+      "icon": "Instagram",
+      "url": "https://www.instagram.com/ues_ohiostate/"
+    },
+    {
+      "id": "linkedin",
+      "label": "LinkedIn",
+      "handle": "Undergraduate Economics Society at The Ohio State University",
+      "icon": "Linkedin",
+      "url": "https://www.linkedin.com/company/undergraduate-economics-society-at-the-ohio-state-university/"
+    },
+    {
+      "id": "facebook",
+      "label": "Facebook",
+      "handle": "UES.OhioState",
+      "icon": "Facebook",
+      "url": "https://www.facebook.com/UES.OhioState/"
+    }
+  ]
+}
