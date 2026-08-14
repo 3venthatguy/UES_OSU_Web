@@ -19,7 +19,8 @@ export interface SiteConfig {
     };
   };
   hero: {
-    text_behind_object: string;
+    /** One entry per rendered line of the hero H1. Each animates in on its own. */
+    headline_lines: string[];
     subheading: string;
     object_3d_file: string;
     action: string;

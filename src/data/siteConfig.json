@@ -45,7 +45,7 @@
     }
   },
   "hero": {
-    "text_behind_object": "Fostering Tomorrow's Economic Leaders",
+    "headline_lines": ["Fostering Tomorrow's", "Economic Leaders"],
     "subheading": "Empowering undergraduate minds through rigorous economic analysis, national case competitions, policy research, and premier industry networking.",
     "object_3d_file": "ues_economic_model.glb",
     "action": "continuous_rotation",

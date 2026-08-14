@@ -41,7 +41,7 @@ UES_OSU_Web/
     │   ├── UESLogo.tsx            # Reusable logo mark (image + wordmark), used in Navbar and Footer
     │   ├── HeroSection.tsx        # Landing hero: giant background typography + EarthModel + stat bento cards
     │   ├── EarthModel.tsx         # Standalone Three.js scene: loads the cartoon Earth .glb, plays its baked clips, auto-spin on a sprung tilted axis + drag-to-rotate, hover a pin to lift it and click to open RegionSheet
-    │   ├── RegionSheet.tsx        # Bottom sheet / docked card showing one region's IMF economic indicators; opened by EarthModel
+    │   ├── RegionSheet.tsx        # One region's economic data: bottom sheet / docked card under xl, two cards flanking the globe from xl up; opened by EarthModel
     │   ├── AboutSection.tsx       # Mission/vision, 4 "pillars," history timeline, officer directory + filter + bio modal
     │   ├── CaseCompSection.tsx    # Case competition page: live countdown timer, prize grid, tracks, timeline, sponsors; opens RegistrationModal
     │   ├── RegistrationModal.tsx  # Case comp team registration form (client-only, generates a fake confirmation ref ID)

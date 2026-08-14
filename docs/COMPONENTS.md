@@ -45,7 +45,12 @@ Presentational-only, no state, no data fetching.
 Landing page hero.
 
 - **Props:** `onNavigate: (id: string) => void`.
-- No internal state — pure composition of `siteConfig.json` copy + `EarthModel` + three "bento" info cards (mission/membership stats, upcoming-events preview with **two hardcoded events** that are NOT pulled from `events.json`, and a resources teaser).
+- Composition of `siteConfig.json` copy + `EarthModel` + three "bento" info cards (mission/membership stats, upcoming-events preview with **two hardcoded events** that are NOT pulled from `events.json`, and a resources teaser).
+- **Layout:** a two-line display H1 (`hero.headline_lines`) sitting at the very top of the section, with the globe canvas pulled up over it by a negative margin so the planet crosses in front of the second line. The globe is *above* the headline in z-order (`z-10` vs `z-0`); the H1 is `pointer-events-none` so the overlapping strip of text cannot swallow a drag aimed at the canvas. The negative margin first has to spend the canvas's own dead space — `CAMERA_FILL` frames the model to ~82% of the box height, so ~47/54/61px of the top is empty before any overlap starts. **That margin is the knob** for how deep the overlap reads.
+- **Launch sequence — the one piece of real state here.** The splash is an overlay, not a gate, so this section is fully painted (model loaded, globe spinning) before the curtain lifts. The top block therefore holds itself hidden until the `RevealGate` context opens (`splashDone && pageEntered` in `App.tsx`), then plays once: each headline line rises out of its own `overflow-hidden` mask a beat apart → globe scales up from `transform-origin: 50% 100%` → subheading and buttons. Timings live in `src/lib/motion.ts` (`heroIntro`, `heroHeadlineLine`, `heroGlobe`, `heroTail`); the globe's beat deliberately overruns all the others.
+  - A **module-level** `introPlayed` flag, not state, suppresses a replay — picking another tab unmounts this component (`<AnimatePresence mode="wait">`), so without it the globe would re-grow on every return to Home.
+  - The globe wrapper reuses `useSettleTransform` from `Reveal.tsx` to strip the settled inline `scale(1)`. See [KNOWN_ISSUES_AND_TECH_DEBT.md](./KNOWN_ISSUES_AND_TECH_DEBT.md) on transforms and containing blocks — that wrapper is the ancestor of `RegionSheet`.
+  - `HERO_INTRO_MAX_MS` is a failsafe timer, mirroring `App.tsx`'s `pageEntered` timeout: if `onAnimationComplete` never fires the hero must not be stranded invisible.
 - ⚠️ The "Upcoming Spotlight" mini-cards (`HeroSection.tsx:100-121`, "National Case Comp Kickoff" Oct 18 / "Federal Reserve Policy Panel" Oct 28) are hardcoded JSX, not derived from `events.json`. If `events.json` changes, **these do not update** — a common source of content drift. See tech-debt doc.
 - CTA buttons navigate to `case-comp` and `events`.
 
@@ -74,13 +79,17 @@ Self-contained Three.js scene — no props. **State:** `selectedId: string | nul
 
 ## `RegionSheet.tsx`
 
-The card that rises out of the hero Earth when a region is clicked. **Props:** `region: EconomicRegion | null`, `meta`, `onClose`. Content is split into an inner component keyed on `region.id`, so switching regions remounts and re-enters rather than silently swapping its text — the same split `RSVPModal` uses.
+The region details that open out of the hero Earth when a pin is clicked. **Props:** `region: EconomicRegion | null`, `meta`, `onClose`. Content is split into inner components keyed on `region.id`, so switching regions remounts and re-enters rather than silently swapping its text — the same split `RSVPModal` uses.
 
-- Phone: bottom sheet across the globe card, `max-h-[55%]`, scrolls internally. Desktop (`md:`): docked to the card's bottom-left corner at 400 px wide.
+- **Two layouts of the same content, chosen by breakpoint alone** (`xl:hidden` / `hidden xl:block`, the navbar's pattern — there are no JS width queries in this app):
+  - Phone: bottom sheet across the globe card, `max-h-[55%]`, scrolls internally. `md:` to `xl:`: docked to the card's bottom-left corner at 400 px wide.
+  - `xl:` and up: **two cards flanking the globe** — description (eyebrow, region name, blurb) on the left, every figure (indicator grid, largest economies, provenance) on the right. They expand out of the centre of the planet and collapse back into it on close. `RegionEyebrowTitle`/`RegionBlurb`/`RegionFigures` are shared by both layouts so the two can never drift apart.
+- ⚠️ **The split cards depend on `xl:max-w-7xl` on the globe wrapper in `HeroSection`.** The camera fit is height-bound at every desktop aspect, so that class doesn't enlarge the model — it widens the box to a constant 1216 px around a ~550 px globe, leaving ~333 px of gutter per side. 288 px of card at a 16 px inset clears the orbiting aircraft by ~29 px. Narrow the wrapper and the cards land on the planet.
+- The cards ride **tracks** (`left-4 right-1/2` and `left-1/2 right-4`) rather than being positioned directly. A percentage `x` in Motion is a percentage of the element's own width, so `x: '100%'` puts a track's inner edge exactly on the container's centre line at any width, and a `transformOrigin` on that same edge makes `scale: 0.4` collapse the card onto the globe — no measurement, no resize listener. Tracks are `pointer-events-none` (they each cover half the canvas) with the card itself `pointer-events-auto`.
 - ⚠️ **Positioned `absolute` inside EarthModel's wrapper, never `fixed`.** Framer leaves `transform: translate(0px)` on settled elements, and any non-`none` transform makes that element the containing block for `position: fixed` descendants — a fixed sheet would be positioned against the animating page wrapper instead of the viewport. `Reveal` and `App.tsx` both strip the settled transform to work around this; staying absolute avoids meeting the problem, and anchors the card to the globe for free.
 - **Deliberately not a modal:** no scroll lock, no backdrop, no focus trap. The page behind stays live. It does have `Escape`-to-close and `aria-label`s, which the older modals lack — don't copy their gaps here.
 - Swipe-to-dismiss uses `useDragControls` with `dragListener={false}`, started only from the grab handle/header. A whole-surface `drag="y"` would fight the sheet's own scrolling on touch.
-- ⚠️ **The source footer is not decoration.** It renders `meta.source`, `vintage` and a link to `sourceUrl`. This hero previously showed invented economic figures; provenance is the whole difference. Don't drop it for layout reasons.
+- ⚠️ **The source footer is not decoration.** It renders `meta.source`, `vintage` and a link to `sourceUrl`. This hero previously showed invented economic figures; provenance is the whole difference. Don't drop it for layout reasons — it lives in `RegionFigures`, so it follows the numbers into whichever card they end up in.
 
 ---
 

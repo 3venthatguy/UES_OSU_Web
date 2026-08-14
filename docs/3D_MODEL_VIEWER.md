@@ -131,6 +131,8 @@ Three things are load-bearing:
 
 `window.__pinScreen()` reports every pin's id, screen position and `facing` flag. Like `__globeTilt` it is **dev-only** and exists for tests: pin positions are the one thing an end-to-end test cannot work out for itself (see the parallax note below, and the merged-blob problem in the pin history). It reports positions only — a test still has to hover and click them to prove anything.
 
+`window.__dirAt(clientX, clientY)` is the inverse: it unprojects a canvas point onto the land sphere and returns the direction in the model's local frame — a value that can be pasted straight into a region's `pin`. **This is how a pin gets placed from a screenshot**, which is usually the only workable brief on a model whose geography is this stylised. Anchor on a pin, since a focused pin is the one point that means the same thing in two different renders: take the marked point's offset from that pin in radii of the globe's projected disc, apply the same offset to the pin's position from `__pinScreen()`, and probe there. A 6 % error in the estimated disc radius moves the answer by about 1.5°.
+
 ### The lift
 
 `updatePins` eases each pin toward its target height every frame:

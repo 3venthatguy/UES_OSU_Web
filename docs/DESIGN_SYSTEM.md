@@ -47,7 +47,7 @@ If the Earth ever needs re-grading, the only levers are:
 
 - Font: `siteConfig.json` declares `'Inter', sans-serif` as `projectSettings.typography`, but **no font is actually loaded** — there's no `<link>` to Google Fonts in `index.html` and no `@font-face` in `index.css`. The site currently renders in each browser's default sans-serif/system font stack (via Tailwind's `font-sans` utility applied in `App.tsx:37`). If pixel-perfect Inter rendering is required, a font `<link>`/import needs to be added — this is a real gap, not just documentation drift.
 - Weight scale in use: `font-medium`, `font-semibold`, `font-bold`, `font-black` — headings lean heavily on `font-black` (e.g. hero H1, section H2s).
-- Size scale: mostly Tailwind defaults (`text-xs` through `text-3xl`/`text-4xl`/`text-5xl` for hero-scale type, up to `text-9xl` for the hero's oversized background wordmark).
+- Size scale: mostly Tailwind defaults (`text-xs` through `text-3xl`/`text-4xl`/`text-5xl` for hero-scale type). The one exception is the hero H1, which uses a fluid `text-[clamp(1.375rem,6.5vw,6rem)]` rather than a breakpoint ladder — its lines must not wrap at *any* width, and a ladder only pins five of them. It was previously a `text-9xl` background wordmark at 10% opacity sitting behind the globe; it is now a solid `#B03A40` headline with the globe tucked beneath it.
 
 ## Layout pattern: "bento grid"
 
@@ -77,7 +77,7 @@ Hover and press states stay on Tailwind's `transition-*`/`duration-*`/`hover:`/`
 - **Scroll reveals** — `<Reveal>` / `<Reveal stagger>` + `<RevealItem>` from `src/components/Reveal.tsx`. A block fades up 28px once its midpoint crosses 85% of viewport height; cards inside a staggered grid follow 60ms apart. Shared variants live in `src/lib/motion.ts`, the trigger in `src/lib/useReveal.ts`.
 - **Page transitions** — `AnimatePresence mode="wait"` in `App.tsx`. Direction comes from `siteConfig.navigation` order: a later tab enters from the right, an earlier one from the left.
 - **Modals and the mobile drawer** — each owns an internal `AnimatePresence`, so they animate both in and out.
-- **The hero's region sheet** — `RegionSheet.tsx` slides up from the bottom of the globe card and is swipe-dismissible via `useDragControls`. It is *not* a modal: no backdrop, no scroll lock, and it is positioned `absolute` inside the globe card rather than `fixed` (see [KNOWN_ISSUES_AND_TECH_DEBT.md](./KNOWN_ISSUES_AND_TECH_DEBT.md) on transforms and containing blocks).
+- **The hero's region sheet** — `RegionSheet.tsx` slides up from the bottom of the globe card and is swipe-dismissible via `useDragControls`; from `xl:` it is instead a pair of cards that expand out of the centre of the globe to either side of it. It is *not* a modal: no backdrop, no scroll lock, and it is positioned `absolute` inside the globe card rather than `fixed` (see [KNOWN_ISSUES_AND_TECH_DEBT.md](./KNOWN_ISSUES_AND_TECH_DEBT.md) on transforms and containing blocks).
 
 Timings and easing belong in `src/lib/motion.ts`, not inline. Every variant collapses to zero duration and zero offset under `useReducedMotion()`.
 

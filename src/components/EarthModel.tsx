@@ -523,6 +523,41 @@ export const EarthModel: React.FC = () => {
       };
     }
 
+    // Third dev seam: what is under this pixel? Unprojects a canvas point onto
+    // the land sphere and returns the direction in the model's local frame —
+    // i.e. a value that can be pasted straight into a region's `pin`.
+    //
+    // This exists because placing a pin by real-world coordinates does not work
+    // on this model: its geography is stylised (see docs/3D_MODEL_VIEWER.md) and
+    // its painted terrain does not match real biomes at all, so the only
+    // reliable brief is "put it *there*, next to that". Point at a spot in a
+    // screenshot, anchor on a pin whose position `__pinScreen()` reports, and
+    // this converts the offset into a vector.
+    if (import.meta.env.DEV) {
+      (window as unknown as Record<string, unknown>).__dirAt = (cx: number, cy: number) => {
+        if (!model) return null;
+        const rect = domElement.getBoundingClientRect();
+        const ndc = new THREE.Vector3(
+          ((cx - rect.left) / rect.width) * 2 - 1,
+          -((cy - rect.top) / rect.height) * 2 + 1,
+          0.5
+        ).unproject(camera);
+        const ray = ndc.sub(camera.position).normalize();
+        const centre = model.getWorldPosition(new THREE.Vector3());
+        const scale = model.getWorldScale(new THREE.Vector3());
+        const R = 1.0531 * scale.x;
+        const oc = new THREE.Vector3().copy(camera.position).sub(centre);
+        const b = oc.dot(ray);
+        const disc = b * b - (oc.lengthSq() - R * R);
+        if (disc < 0) return null;
+        const hit = new THREE.Vector3()
+          .copy(camera.position)
+          .addScaledVector(ray, -b - Math.sqrt(disc));
+        const local = model.worldToLocal(hit).normalize();
+        return [local.x, local.y, local.z];
+      };
+    }
+
     const handlePointerDown = (event: PointerEvent) => {
       // Ignore a second finger so it cannot hijack an in-progress drag.
       if (!event.isPrimary) return;
@@ -766,6 +801,7 @@ export const EarthModel: React.FC = () => {
       if (import.meta.env.DEV) {
         delete (window as unknown as Record<string, unknown>).__globeTilt;
         delete (window as unknown as Record<string, unknown>).__pinScreen;
+        delete (window as unknown as Record<string, unknown>).__dirAt;
       }
       window.removeEventListener('resize', handleResize);
       motionQuery.removeEventListener('change', onMotionChange);

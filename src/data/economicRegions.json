@@ -120,9 +120,9 @@
       "name": "Sub-Saharan Africa",
       "blurb": "Forty-eight economies and 1.3 billion people producing under 2% of world output. The lowest income per head anywhere — $1,673 against a world average of $14,406 — but the second-fastest growth of any region, behind only South Asia.",
       "pin": [
-        0.9831,
-        -0.1548,
-        -0.0976
+        0.8529,
+        -0.5,
+        -0.1504
       ],
       "indicators": [
         {
@@ -178,9 +178,9 @@
       "name": "Middle East & North Africa",
       "blurb": "From Morocco to Iran, and — since the World Bank redrew this region — Afghanistan and Pakistan as well, which is why these figures cover 828 million people. Carries the highest unemployment of any region, at 7.8%.",
       "pin": [
-        0.8576,
-        0.4694,
-        -0.2102
+        0.997,
+        0.0707,
+        -0.0304
       ],
       "indicators": [
         {

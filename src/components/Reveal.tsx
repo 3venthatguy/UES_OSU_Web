@@ -29,8 +29,15 @@ import { revealContainer, revealItem } from '../lib/motion';
  */
 export const RevealGate = createContext(true);
 
-/** Strips the settled inline transform. See the note above. */
-function useSettleTransform<T extends HTMLElement>(ref: React.RefObject<T | null>) {
+/**
+ * Strips the settled inline transform. See the note above.
+ *
+ * Exported because HeroSection's launch sequence scales the globe wrapper and
+ * needs exactly the same cleanup — that wrapper is the one element on the page
+ * whose descendants (RegionSheet) would be positioned against it if a stray
+ * `scale(1)` were left behind.
+ */
+export function useSettleTransform<T extends HTMLElement>(ref: React.RefObject<T | null>) {
   return useCallback(
     (definition: unknown) => {
       if (definition !== 'visible') return;
