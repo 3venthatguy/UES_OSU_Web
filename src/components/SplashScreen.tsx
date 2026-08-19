@@ -1,4 +1,5 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { ASSETS } from '../assets';
 import { useAssetLoad } from '../lib/assetLoading';
 import { setScrollLocked } from '../lib/smoothScroll';
 
@@ -292,7 +293,7 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onFinished }) => {
         </svg>
 
         <div className="absolute flex h-[88px] w-[88px] items-center justify-center rounded-2xl bg-white shadow-lg">
-          <img src="/assets/logo/logo.jpeg" alt="" width={56} height={56} className="h-[56px] w-[56px] object-contain" />
+          <img src={ASSETS.logo.jpeg} alt="" width={56} height={56} className="h-[56px] w-[56px] object-contain" />
         </div>
       </div>
 

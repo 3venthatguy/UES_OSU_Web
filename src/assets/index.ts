@@ -1,7 +1,13 @@
 // UES Asset Folder System Registry
+//
+// Paths into `public/` are built from `import.meta.env.BASE_URL` rather than
+// written root-absolute. Vite rewrites `/...` URLs it finds in index.html
+// attributes, but not ones inside string literals like these — and the site
+// deploys under a subpath (`/UES_OSU_Web/`), so a bare `/assets/...` would 404
+// in production. BASE_URL already carries its trailing slash.
 export const ASSETS = {
   logo: {
-    jpeg: '/assets/logo/logo.jpeg',
+    jpeg: `${import.meta.env.BASE_URL}assets/logo/logo.jpeg`,
   },
   // Officer headshots are not listed here — they resolve from an officer's id
   // against src/assets/profiles/. See src/lib/profilePhotos.ts.
@@ -19,6 +25,6 @@ export const ASSETS = {
     //
     // Carries two ~30s animation clips (orbiting planes, drifting clouds, rigged
     // whale tails) that EarthModel plays through an AnimationMixer.
-    earthCartoonGlb: '/assets/earth-cartoon/earth-cartoon.glb',
+    earthCartoonGlb: `${import.meta.env.BASE_URL}assets/earth-cartoon/earth-cartoon.glb`,
   },
 } as const;

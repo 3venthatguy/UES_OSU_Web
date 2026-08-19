@@ -5,6 +5,10 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    // Served from a GitHub Pages *project* page, so the site lives under a
+    // subpath rather than the domain root. Every emitted asset URL is prefixed
+    // with this; `import.meta.env.BASE_URL` exposes it to runtime code.
+    base: '/UES_OSU_Web/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
